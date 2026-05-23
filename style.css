@@ -1,0 +1,463 @@
+/* =========================
+   ADVANCED FOOTBALL DRAFT UI
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Rajdhani:wght@300;500;700&display=swap');
+
+:root {
+  --main-white: #ffffff;
+  --bg-dark: #050b4d;
+  --bg-blue: #0d3cff;
+  --accent-cyan: #00e5ff;
+  --accent-gold: #ffd95a;
+  --accent-purple: #a100ff;
+  --text-light: #ffffff;
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --panel-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY / MAIN BACKGROUND
+========================= */
+body {
+  font-family: 'Rajdhani', sans-serif;
+
+  background:
+    radial-gradient(circle at top left, rgba(0, 255, 255, 0.15), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.12), transparent 25%),
+    linear-gradient(135deg, #050b4d 0%, #0811b8 45%, #0d4cff 100%);
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  color: var(--text-light);
+  position: relative;
+}
+
+/* Glow overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+  pointer-events: none;
+  opacity: .3;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+.container {
+  width: 100%;
+  max-width: 470px;
+  padding: 20px;
+  position: relative;
+}
+
+/* =========================
+   MAIN PANEL
+========================= */
+.content-box {
+  background: rgba(7, 15, 80, 0.78);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 28px;
+
+  padding: 45px 28px;
+  position: relative;
+  overflow: hidden;
+
+  box-shadow:
+    0 0 25px rgba(0, 217, 255, 0.15),
+    0 20px 50px rgba(0,0,0,0.45);
+}
+
+/* Neon top line */
+.content-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #00e5ff,
+    #00aaff,
+    #a100ff
+  );
+}
+
+/* =========================
+   DECORATIVE CORNERS
+========================= */
+.corner-decor {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border: 2px solid var(--accent-cyan);
+  pointer-events: none;
+  opacity: .8;
+}
+
+.top-l {
+  top: 14px;
+  left: 14px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.bottom-r {
+  bottom: 14px;
+  right: 14px;
+  border-left: none;
+  border-top: none;
+}
+
+/* =========================
+   SECTION ANIMATION
+========================= */
+.section {
+  display: none;
+  flex-direction: column;
+  animation: fadeSlide .5s ease;
+}
+
+.section.active {
+  display: flex;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   TITLES
+========================= */
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  color: #fff;
+
+  margin-bottom: 10px;
+
+  text-shadow:
+    0 0 12px rgba(0,229,255,.45);
+}
+
+p {
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,.75);
+}
+
+/* =========================
+   INPUT GROUP
+========================= */
+.input-group {
+  margin-top: 32px;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 18px 20px;
+
+  background: rgba(255,255,255,0.08);
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  border-radius: 18px;
+
+  color: #fff;
+
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+
+  transition: .3s;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,.45);
+}
+
+input:focus {
+  outline: none;
+
+  border-color: var(--accent-cyan);
+
+  box-shadow:
+    0 0 15px rgba(0,229,255,.25);
+
+  background: rgba(255,255,255,.12);
+}
+
+/* =========================
+   BUTTON
+========================= */
+button {
+  width: 100%;
+  margin-top: 28px;
+
+  padding: 18px;
+
+  border: none;
+  border-radius: 18px;
+
+  cursor: pointer;
+
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00c6ff,
+      #005eff
+    );
+
+  position: relative;
+  overflow: hidden;
+
+  transition: .35s;
+}
+
+button:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 25px rgba(0,229,255,.35);
+}
+
+button::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent
+  );
+
+  transition: .6s;
+}
+
+button:hover::before {
+  left: 120%;
+}
+
+/* =========================
+   TITLE IMAGE
+========================= */
+.titulo2 {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   CARDS GRID
+========================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.08),
+      rgba(255,255,255,.03)
+    );
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  position: relative;
+
+  transition: .3s;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  transition: .35s;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.04);
+
+  border-color: var(--accent-cyan);
+
+  box-shadow:
+    0 10px 25px rgba(0,229,255,.22);
+}
+
+.card:hover img {
+  transform: scale(1.06);
+}
+
+.card.selected {
+  border: 2px solid var(--accent-gold);
+
+  box-shadow:
+    0 0 20px rgba(255,217,90,.35);
+}
+
+.card.selected::after {
+  content: "SELECTED";
+
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: rgba(0,0,0,.7);
+
+  padding: 4px 10px;
+  border-radius: 20px;
+
+  font-size: 9px;
+  font-family: 'Orbitron', sans-serif;
+
+  letter-spacing: 2px;
+
+  color: var(--accent-gold);
+}
+
+/* =========================
+   LOADING SCANNER
+========================= */
+.spinner {
+  width: 75px;
+  height: 75px;
+
+  margin: 40px auto;
+
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,.08);
+  border-top: 3px solid var(--accent-cyan);
+
+  animation: spin 1s linear infinite;
+
+  box-shadow:
+    0 0 20px rgba(0,229,255,.2);
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#loadingText {
+  margin-top: 18px;
+
+  text-align: center;
+
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+
+  letter-spacing: 4px;
+
+  color: rgba(255,255,255,.85);
+}
+
+/* =========================
+   LOGO
+========================= */
+.content-box img{
+  width: 100%;
+  margin: 0 auto 22px;
+  display: block;
+
+  filter:
+    drop-shadow(0 0 10px rgba(0,229,255,.35));
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 500px) {
+
+  .container {
+    padding: 14px;
+  }
+
+  .content-box {
+    padding: 38px 20px;
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+
+  button {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  .cards-grid {
+    gap: 12px;
+  }
+}
