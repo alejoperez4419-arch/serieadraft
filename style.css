@@ -27,18 +27,15 @@
 body {
   font-family: 'Rajdhani', sans-serif;
 
-  background:
-    radial-gradient(circle at top left, rgba(0, 255, 255, 0.15), transparent 25%),
-    radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.12), transparent 25%),
-    linear-gradient(135deg, #050b4d 0%, #0811b8 45%, #0d4cff 100%);
-
+  background-image: url(fondo.png);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
-  color: var(--text-light);
-  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
 }
 
 /* Glow overlay */
