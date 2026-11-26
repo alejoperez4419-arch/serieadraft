@@ -83,7 +83,7 @@ body::before {
   position: relative;
   overflow: hidden;
   padding: 38px 26px;
-background: linear-gradient(335deg, #00B6A4, #A7FF4D);
+  background: linear-gradient(335deg, #00B6A4, #A7FF4D);
   border: 1px solid rgba(200, 255, 0, .35);
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(200, 255, 0, .08), 0 20px 60px rgba(0, 0, 0, .8);
@@ -188,7 +188,7 @@ p {
   text-align: center;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #d0d0d0;
+  color: black;
 }
 
 /* INPUT */
